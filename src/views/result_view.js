@@ -9,4 +9,6 @@ ResultView.prototype.bindEvents = function(){
   });
 };
 
+
+
 module.exports = ResultView;
