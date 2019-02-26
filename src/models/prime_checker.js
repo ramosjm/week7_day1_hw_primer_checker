@@ -8,7 +8,7 @@ PrimeChecker.prototype.bindEvents = function(){
   PubSub.subscribe('ForView:number-submitted',(event)=>{
     const inputtedNumber = event.detail;
     result = this.numberIsPrime(inputtedNumber);
-    PubSub.publish('PrimeNumber:result');
+    PubSub.publish('PrimeNumber:result',result);
   });
 };
 
@@ -18,10 +18,10 @@ PrimeChecker.prototype.numberIsPrime = function (number) {
   }
   for (let i = 2; i < number; i++) {
     if (number % i === 0) {
-        return false;
+        return number + ' is not a prime number';
     }
   }
-  return true;
+  return number + ' is a prime number';
 };
 
 module.exports = PrimeChecker;
